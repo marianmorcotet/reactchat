@@ -13,7 +13,7 @@ async function connectToDatabase() {
     await client.connect()
     const collection = client.db('test').collection('messages')
     console.log('')
-    await collection.insertOne({ user1: 'TEST MESSAGE' })
+    await collection.insertOne({ user1: 'TEST MESSAGE', date: Date.now() })
   } catch (e) {
     console.error(e)
   } finally {
