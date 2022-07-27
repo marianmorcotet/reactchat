@@ -1,0 +1,12 @@
+.customInputRoot {
+  align-self: flex-end;
+  position: relative;
+  width: 50%;
+  padding: 10px 20px;
+}
+
+.customInput {
+  resize: none;
+  /* min-height: 72px; */
+  width: 100%;
+}
