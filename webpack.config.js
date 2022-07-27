@@ -10,7 +10,7 @@ module.exports = {
     hot: true,
     open: true,
     proxy: {
-      '/api': {
+      '/room': {
         target: 'http://localhost:3000',
         router: () => 'http://localhost:4001',
         logLevel: 'debug',
