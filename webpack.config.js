@@ -1,3 +1,4 @@
+var path = require('path')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 const htmlPlugin = new HtmlWebPackPlugin({
   template: './src/index.html',
@@ -5,17 +6,23 @@ const htmlPlugin = new HtmlWebPackPlugin({
 })
 module.exports = {
   mode: 'development',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'index_bundle.js',
+    publicPath: '/',
+  },
   devServer: {
     port: 3000,
     hot: true,
     open: true,
     proxy: {
-      '/room': {
+      '/api': {
         target: 'http://localhost:3000',
         router: () => 'http://localhost:4001',
         logLevel: 'debug',
       },
     },
+    historyApiFallback: true,
   },
   module: {
     rules: [

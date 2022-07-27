@@ -1,6 +1,7 @@
 import React from 'react'
 import Message from '../../components/Message/Message'
 import CustomInput from '../../components/CustomInput/CustomInput'
+import { useParams } from 'react-router-dom'
 import './Chat.css'
 
 const Chat = () => {

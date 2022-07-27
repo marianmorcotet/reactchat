@@ -4,7 +4,7 @@ import './CustomInput.css'
 const CustomInput = () => {
   const [value, setValue] = useState('')
 
-  fetch('/room/57')
+  fetch('/api/57')
     .then((res) => res.json())
     .then((data) => setValue(data.message))
 
