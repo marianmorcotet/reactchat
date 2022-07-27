@@ -1,0 +1,17 @@
+.ownerMessage {
+  justify-content: flex-end;
+  background-color: green;
+  border-radius: 15%;
+}
+
+.comingMessage {
+  justify-content: flex-start;
+  background-color: grey;
+  border-radius: 15%;
+}
+
+.messageRoot {
+  display: flex;
+  flex-direction: row;
+  max-width: 100%;
+}
