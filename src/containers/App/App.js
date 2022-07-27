@@ -5,7 +5,7 @@ import './App.css'
 
 const App = () => {
   return (
-    <div className="root">
+    <div className="appRoot">
       <SideMenu />
       <Chat />
     </div>

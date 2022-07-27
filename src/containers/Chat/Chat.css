@@ -1,3 +1,5 @@
-.root {
+.chatRoot {
   flex-grow: 5;
+  border: 2px solid red;
+  min-height: 600px;
 }
