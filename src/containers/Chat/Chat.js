@@ -5,6 +5,8 @@ import { useParams } from 'react-router-dom'
 import './Chat.css'
 
 const Chat = () => {
+  let { roomId } = useParams()
+  console.log('ROOM ID', roomId)
   return (
     <div className="chatRoot">
       <Message coming={false} content="message1" />
