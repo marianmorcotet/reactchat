@@ -5,6 +5,18 @@ const htmlPlugin = new HtmlWebPackPlugin({
 })
 module.exports = {
   mode: 'development',
+  devServer: {
+    port: 3000,
+    hot: true,
+    open: true,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+        router: () => 'http://localhost:4001',
+        logLevel: 'debug',
+      },
+    },
+  },
   module: {
     rules: [
       {
