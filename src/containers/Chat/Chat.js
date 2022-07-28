@@ -7,7 +7,7 @@ import './Chat.css'
 
 const Chat = () => {
   let { roomId } = useParams()
-  const client = new W3CWebSocket('wss://127.0.0.0:4001/websockets')
+  const client = new W3CWebSocket('wss://localhost:4001/websockets')
   console.log('ROOM ID', roomId)
 
   useEffect(() => {
