@@ -1,11 +1,16 @@
 import React, { useState } from 'react'
 import './CustomInput.css'
 
-const CustomInput = () => {
+const CustomInput = (props) => {
   const [value, setValue] = useState('')
+  const addMessage = props.addMessage
 
-  function handleSubmit() {
-    console.log()
+  function handleSubmit(e) {
+    console.log('EVENT', e)
+    if (e.key === 'Enter') {
+      e.stopPropagation()
+      addMessage({ coming: false, content: e.target.value })
+    }
   }
   function handleChange(e) {
     setValue(e.target.value)
@@ -13,14 +18,17 @@ const CustomInput = () => {
   }
   return (
     <div className="customInputRoot">
-      <textarea
-        className="customInput"
-        type="textarea"
-        name="textValue"
-        value={value}
-        rows={4}
-        onChange={handleChange}
-      />
+      <form onSubmit={handleSubmit}>
+        <textarea
+          className="customInput"
+          type="textarea"
+          name="textValue"
+          value={value}
+          rows={4}
+          onChange={handleChange}
+        />
+        <input type="submit"></input>
+      </form>
     </div>
   )
 }

@@ -14,6 +14,9 @@ const Chat = () => {
     { coming: false, content: 'testgoing2' },
   ])
 
+  function addMessage(message) {
+    setMessages([...messages, message])
+  }
   console.log('ROOM ID', roomId)
 
   return (
@@ -32,7 +35,7 @@ const Chat = () => {
             {messages.map((message) => (
               <Message coming={message.coming} content={message.content} />
             ))}
-            <CustomInput />
+            <CustomInput addMessage={addMessage} />
           </div>
         )
       }}
