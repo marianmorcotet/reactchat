@@ -4,10 +4,6 @@ import './CustomInput.css'
 const CustomInput = () => {
   const [value, setValue] = useState('')
 
-  fetch('/api/57')
-    .then((res) => res.json())
-    .then((data) => setValue(data.message))
-
   function handleSubmit() {
     console.log()
   }

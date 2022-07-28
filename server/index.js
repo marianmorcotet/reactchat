@@ -1,6 +1,7 @@
 const express = require('express')
 const mongo = require('./mongoConnection')
 const WebSocket = require('ws')
+var uuid = require('uuid')
 
 const PORT = process.env.PORT || 4001
 
@@ -12,10 +13,14 @@ app.get('/api/:roomId', (req, res) => {
 
 const users = new Set()
 
-function sendMessage(message) {
+function sendMessage(message, userID) {
   users.forEach((user) => {
-    user.ws.send(JSON.stringify(message))
+    if (user.userID === userID) {
+      console.log('USER', user)
+      user.ws.send(JSON.stringify(message))
+    }
   })
+  // users[userId].ws.send(JSON.stringify(message))
 }
 
 const server = new WebSocket.Server(
@@ -27,14 +32,17 @@ const server = new WebSocket.Server(
   }
 )
 server.on('connection', (ws) => {
+  const userID = uuid.v4()
   const userRef = {
-    ws,
+    userID: userID,
+    ws: ws,
   }
   users.add(userRef)
+  sendMessage(userID, userID)
   ws.on('message', (message) => {
     console.log(message)
     try {
-      sendMessage('response')
+      sendMessage('response', userID)
     } catch (e) {
       console.error('Error passing message!', e)
     }

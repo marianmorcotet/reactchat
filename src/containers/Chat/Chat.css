@@ -1,7 +1,7 @@
 .chatRoot {
   display: flex;
   flex-direction: column;
-  /* align-items: stretch; */
+  justify-content: flex-end;
   flex-grow: 5;
   border: 2px solid red;
   min-height: 600px;
